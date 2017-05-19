@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using CleanArchitecturePoc.Models;
+using CleanArchitecturePoc.Repositories;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,26 +13,18 @@ namespace CleanArchitecturePoc.Controllers
 {
     public class UsersController : ApiController
     {
-        
-public List<User> Get()
-        {
-            List<User> users;
-            var jsonFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory.ToString(), "App_Data\\users.json");
-            using (StreamReader r = new StreamReader(jsonFile))
-            {
-                string json = r.ReadToEnd();
-                users = JsonConvert.DeserializeObject<List<User>>(json);
-            }
+        private readonly string _context;
+        private readonly UserRepository _userRepository;
 
-            return users;
+        public UsersController()
+        {
+            _context = AppDomain.CurrentDomain.BaseDirectory.ToString();
+            _userRepository = new UserRepository(_context);
         }
 
-        public class User
+        public List<UserModel> Get()
         {
-            public int id { get; set; }
-            public string first_name { get; set; }
-            public string last_name { get; set; }
-            public string email { get; set; }
+            return _userRepository.GetUsers().ToList();
         }
     }
 }
