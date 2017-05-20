@@ -3,28 +3,30 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Web;
 
 namespace CleanArchitecturePoc.Repositories
 {
-    public class UserRepository
+    public class NoteRepository
     {
         private readonly string _context;
 
-        public UserRepository(string context)
+        public NoteRepository(string context)
         {
             _context = context;
         }
 
-        public IEnumerable<UserModel> GetUsers()
+        public IEnumerable<NoteModel> GetNotes()
         {
-            List<UserModel> users;
-            string jsonFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory.ToString(), "App_Data\\users.json");
+            List<NoteModel> notes;
+            string jsonFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory.ToString(), "App_Data\\notes.json");
             using (StreamReader reader = new StreamReader(jsonFile))
             {
                 string json = reader.ReadToEnd();
-                users = JsonConvert.DeserializeObject<List<UserModel>>(json);
+                notes = JsonConvert.DeserializeObject<List<NoteModel>>(json);
             }
-            return users;
+            return notes;
         }
     }
 }

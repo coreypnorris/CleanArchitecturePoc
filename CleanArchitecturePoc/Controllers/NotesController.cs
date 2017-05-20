@@ -7,20 +7,20 @@ using System.Web.Http;
 
 namespace CleanArchitecturePoc.Controllers
 {
-    public class UsersController : ApiController
+    public class NotesController : ApiController
     {
         private readonly string _context;
-        private readonly UserRepository _userRepository;
+        private readonly NoteRepository _noteRepository;
 
-        public UsersController()
+        public NotesController()
         {
             _context = AppDomain.CurrentDomain.BaseDirectory.ToString();
-            _userRepository = new UserRepository(_context);
+            _noteRepository = new NoteRepository(_context);
         }
 
-        public List<UserModel> Get()
+        public List<NoteModel> GetNotes()
         {
-            return _userRepository.GetUsers().ToList();
+            return _noteRepository.GetNotes().ToList();
         }
     }
 }
