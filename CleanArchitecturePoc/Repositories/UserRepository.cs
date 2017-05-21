@@ -3,28 +3,36 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace CleanArchitecturePoc.Repositories
 {
     public class UserRepository
     {
-        private readonly string _context;
+        private readonly SchemaModel _dataContext;
 
-        public UserRepository(string context)
+        public UserRepository(SchemaModel schema)
         {
-            _context = context;
+            _dataContext = schema;
         }
 
         public IEnumerable<UserModel> GetUsers()
         {
-            List<UserModel> users;
-            string jsonFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory.ToString(), "App_Data\\users.json");
-            using (StreamReader reader = new StreamReader(jsonFile))
+            return _dataContext.Users.Select(u => new UserModel() { Id = u.Id, Email = u.Email });
+        }
+
+        // Eager loading example
+        public UserModel GetUserWithEnrollments(int userId)
+        {
+            UserModel user = _dataContext.Users.FirstOrDefault(u => u.Id == userId);
+            if (user == null) return null;
+
+            return new UserModel()
             {
-                string json = reader.ReadToEnd();
-                users = JsonConvert.DeserializeObject<List<UserModel>>(json);
-            }
-            return users;
+                Id = user.Id,
+                Email = user.Email,
+                Enrollments = _dataContext.Enrollments.Where(e => e.UserId == userId).ToList()
+            };
         }
     }
 }

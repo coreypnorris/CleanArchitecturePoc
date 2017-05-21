@@ -1,26 +1,38 @@
 ﻿using CleanArchitecturePoc.Models;
 using CleanArchitecturePoc.Repositories;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web.Http;
 
 namespace CleanArchitecturePoc.Controllers
 {
+    [RoutePrefix("Api/Users")]
     public class UsersController : ApiController
     {
-        private readonly string _context;
+        private readonly SchemaModel _dataContext;
         private readonly UserRepository _userRepository;
 
         public UsersController()
         {
-            _context = AppDomain.CurrentDomain.BaseDirectory.ToString();
-            _userRepository = new UserRepository(_context);
+            _dataContext = new SchemaRepository().GetSchema();
+            _userRepository = new UserRepository(_dataContext);
         }
 
-        public List<UserModel> Get()
+        [HttpGet]
+        [Route("")]
+        public IEnumerable<UserModel> GetUsers()
         {
-            return _userRepository.GetUsers().ToList();
+            return _userRepository.GetUsers();
+        }
+
+        [HttpGet]
+        [Route("{userId}/WithEnrollments")]
+        public UserModel GetUserWithEnrollments(int userId)
+        {
+            return _userRepository.GetUserWithEnrollments(userId);
         }
     }
 }
