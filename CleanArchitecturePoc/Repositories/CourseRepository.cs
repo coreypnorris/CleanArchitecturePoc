@@ -6,7 +6,7 @@ using System.Web;
 
 namespace CleanArchitecturePoc.Repositories
 {
-    public class CourseRepository
+    public class CourseRepository : ICourseRepository
     {
         private readonly SchemaModel _dataContext;
         public CourseRepository(SchemaModel schema)

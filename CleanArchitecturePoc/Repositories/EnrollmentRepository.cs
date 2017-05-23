@@ -6,7 +6,7 @@ using System.Web;
 
 namespace CleanArchitecturePoc.Repositories
 {
-    public class EnrollmentRepository
+    public class EnrollmentRepository : IEnrollmentRepository
     {
         private readonly SchemaModel _dataContext;
 

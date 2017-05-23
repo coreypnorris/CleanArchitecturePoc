@@ -1,0 +1,14 @@
+﻿using System;
+using System.Collections.Generic;
+using CleanArchitecturePoc.Models;
+
+namespace CleanArchitecturePoc.Repositories
+{
+    public interface IEnrollmentRepository
+    {
+        void CreateEnrollment(int courseId, int userId, DateTime date);
+        IEnumerable<EnrollmentModel> GetEnrollments();
+        IEnumerable<EnrollmentModel> GetEnrollmentsByCourseAndUser(int courseId, int userId);
+        IEnumerable<EnrollmentModel> GetEnrollmentsByDate(DateTime date);
+    }
+}

@@ -13,13 +13,11 @@ namespace CleanArchitecturePoc.Controllers
     [RoutePrefix("Api/Users")]
     public class UsersController : ApiController
     {
-        private readonly SchemaModel _schema;
-        private readonly UnitOfWork _unitOfWork;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public UsersController()
+        public UsersController(IUnitOfWork unitOfWork)
         {
-            _schema = new SchemaRepository().GetSchema();
-            _unitOfWork = new UnitOfWork(_schema);
+            _unitOfWork = unitOfWork;
         }
 
         [HttpGet]

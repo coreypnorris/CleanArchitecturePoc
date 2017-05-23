@@ -13,13 +13,11 @@ namespace CleanArchitecturePoc.Controllers
     [RoutePrefix("Api/Courses")]
     public class CoursesController : ApiController
     {
-        private readonly SchemaModel _schema;
-        private readonly UnitOfWork _unitOfWork;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public CoursesController()
+        public CoursesController(IUnitOfWork unitOfWork)
         {
-            _schema = new SchemaRepository().GetSchema();
-            _unitOfWork = new UnitOfWork(_schema);
+            _unitOfWork = unitOfWork;
         }
 
         [HttpGet]

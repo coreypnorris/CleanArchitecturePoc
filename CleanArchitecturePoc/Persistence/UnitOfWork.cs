@@ -9,12 +9,12 @@ using System.Web;
 
 namespace CleanArchitecturePoc.Persistence
 {
-    public class UnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
         private readonly SchemaModel _context;
-        public UserRepository Users { get; private set; }
-        public CourseRepository Courses { get; private set; }
-        public EnrollmentRepository Enrollments { get; private set; }
+        public IUserRepository Users { get; private set; }
+        public ICourseRepository Courses { get; private set; }
+        public IEnrollmentRepository Enrollments { get; private set; }
 
         public UnitOfWork(SchemaModel context)
         {

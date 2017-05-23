@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace CleanArchitecturePoc.Repositories
 {
-    public class UserRepository
+    public class UserRepository : IUserRepository
     {
         private readonly SchemaModel _dataContext;
 
