@@ -24,5 +24,25 @@ namespace CleanArchitecturePoc.Repositories
         {
             return _dataContext.Enrollments.Where(e => e.Date == date);
         }
+
+        public void CreateEnrollment(int courseId, int userId, DateTime date)
+        {
+            if (date == null) return;
+            EnrollmentModel newEnrollment = new EnrollmentModel()
+            {
+                Id = _dataContext.Enrollments.Count() + 1,
+                CourseId = courseId,
+                UserId = userId,
+                Date = date
+            };
+
+            _dataContext.Enrollments.Add(newEnrollment);
+            return;
+        }
+
+        public IEnumerable<EnrollmentModel> GetEnrollmentsByCourseAndUser(int courseId, int userId)
+        {
+            return _dataContext.Enrollments.Where(e => e.CourseId == courseId && e.UserId == userId);
+        }
     }
 }

@@ -10,23 +10,23 @@ namespace CleanArchitecturePoc.Repositories
 {
     public class SchemaRepository
     {
-        private readonly SchemaModel _context;
+        private readonly SchemaModel _schema;
 
         public SchemaRepository()
         {
-            SchemaModel schema;
             string jsonFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory.ToString(), "App_Data\\schema.json");
+            SchemaModel schema;
             using (StreamReader reader = new StreamReader(jsonFile))
             {
                 var data = reader.ReadToEnd();
                 schema = JsonConvert.DeserializeObject<SchemaModel>(data);
             }
-            _context = schema;
+            _schema = schema;
         }
 
         public SchemaModel GetSchema()
         {
-            return _context;
+            return _schema;
         }
     }
 }

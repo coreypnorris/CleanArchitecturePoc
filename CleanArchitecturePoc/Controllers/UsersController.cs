@@ -1,4 +1,5 @@
 ﻿using CleanArchitecturePoc.Models;
+using CleanArchitecturePoc.Persistence;
 using CleanArchitecturePoc.Repositories;
 using Newtonsoft.Json;
 using System;
@@ -12,27 +13,27 @@ namespace CleanArchitecturePoc.Controllers
     [RoutePrefix("Api/Users")]
     public class UsersController : ApiController
     {
-        private readonly SchemaModel _dataContext;
-        private readonly UserRepository _userRepository;
+        private readonly SchemaModel _schema;
+        private readonly UnitOfWork _unitOfWork;
 
         public UsersController()
         {
-            _dataContext = new SchemaRepository().GetSchema();
-            _userRepository = new UserRepository(_dataContext);
+            _schema = new SchemaRepository().GetSchema();
+            _unitOfWork = new UnitOfWork(_schema);
         }
 
         [HttpGet]
         [Route("")]
         public IEnumerable<UserModel> GetUsers()
         {
-            return _userRepository.GetUsers();
+            return _unitOfWork.Users.GetUsers();
         }
 
         [HttpGet]
         [Route("{userId}/WithEnrollments")]
         public UserModel GetUserWithEnrollments(int userId)
         {
-            return _userRepository.GetUserWithEnrollments(userId);
+            return _unitOfWork.Users.GetUserWithEnrollments(userId);
         }
     }
 }

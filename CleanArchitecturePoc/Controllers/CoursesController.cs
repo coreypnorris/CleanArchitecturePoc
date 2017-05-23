@@ -1,4 +1,5 @@
 ﻿using CleanArchitecturePoc.Models;
+using CleanArchitecturePoc.Persistence;
 using CleanArchitecturePoc.Repositories;
 using System;
 using System.Collections.Generic;
@@ -12,34 +13,34 @@ namespace CleanArchitecturePoc.Controllers
     [RoutePrefix("Api/Courses")]
     public class CoursesController : ApiController
     {
-        private readonly SchemaModel _dataContext;
-        private readonly CourseRepository _courseRepository;
+        private readonly SchemaModel _schema;
+        private readonly UnitOfWork _unitOfWork;
 
         public CoursesController()
         {
-            _dataContext = new SchemaRepository().GetSchema();
-            _courseRepository = new CourseRepository(_dataContext);
+            _schema = new SchemaRepository().GetSchema();
+            _unitOfWork = new UnitOfWork(_schema);
         }
 
         [HttpGet]
         [Route("")]
         public IEnumerable<CourseModel> GetCourse()
         {
-            return _courseRepository.GetCourses();
+            return _unitOfWork.Courses.GetCourses();
         }
 
         [HttpGet]
         [Route("ByName/{courseName}")]
         public IEnumerable<CourseModel> GetCourseByName(string courseName)
         {
-            return _courseRepository.GetCoursesByName(courseName);
+            return _unitOfWork.Courses.GetCoursesByName(courseName);
         }
 
         [HttpGet]
         [Route("{courseId}/WithEnrollments")]
         public CourseModel GetCourseWithEnrollments(int courseId)
         {
-            return _courseRepository.GetCourseWithEnrollments(courseId);
+            return _unitOfWork.Courses.GetCourseWithEnrollments(courseId);
         }
     }
 }
