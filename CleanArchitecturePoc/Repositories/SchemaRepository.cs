@@ -8,7 +8,7 @@ using System.Web;
 
 namespace CleanArchitecturePoc.Repositories
 {
-    public class SchemaRepository
+    public class SchemaRepository : ISchemaRepository
     {
         private readonly SchemaModel _schema;
 
@@ -24,7 +24,7 @@ namespace CleanArchitecturePoc.Repositories
             _schema = schema;
         }
 
-        public SchemaModel GetSchema()
+        public SchemaModel Schema()
         {
             return _schema;
         }

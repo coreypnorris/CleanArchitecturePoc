@@ -11,17 +11,17 @@ namespace CleanArchitecturePoc.Persistence
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly SchemaModel _context;
+        public ISchemaRepository SchemaContext {get; private set;}
         public IUserRepository Users { get; private set; }
         public ICourseRepository Courses { get; private set; }
         public IEnrollmentRepository Enrollments { get; private set; }
 
-        public UnitOfWork(SchemaModel context)
+        public UnitOfWork(SchemaModel schemaModel)
         {
-            _context = context;
-            Users = new UserRepository(context);
-            Courses = new CourseRepository(context);
-            Enrollments = new EnrollmentRepository(context);
+            SchemaContext = new SchemaRepository();
+            Users = new UserRepository(SchemaContext.Schema());
+            Courses = new CourseRepository(SchemaContext.Schema());
+            Enrollments = new EnrollmentRepository(SchemaContext.Schema());
         }
 
         public void Complete()
@@ -30,7 +30,7 @@ namespace CleanArchitecturePoc.Persistence
             using (StreamWriter file = File.CreateText(jsonFile))
             {
                 JsonSerializer serializer = new JsonSerializer();
-                serializer.Serialize(file, _context);
+                serializer.Serialize(file, SchemaContext.Schema());
             }
         }
     }
