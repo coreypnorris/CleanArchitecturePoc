@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecturePoc", "CleanArchitecturePoc\CleanArchitecturePoc.csproj", "{C280A6D4-FD59-43D9-A440-774C591D8AC6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecturePoc.Tests", "CleanArchitecturePoc.Tests\CleanArchitecturePoc.Tests.csproj", "{831707C9-E79A-4540-869D-B63186DB2DC2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{C280A6D4-FD59-43D9-A440-774C591D8AC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C280A6D4-FD59-43D9-A440-774C591D8AC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C280A6D4-FD59-43D9-A440-774C591D8AC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{831707C9-E79A-4540-869D-B63186DB2DC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{831707C9-E79A-4540-869D-B63186DB2DC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{831707C9-E79A-4540-869D-B63186DB2DC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{831707C9-E79A-4540-869D-B63186DB2DC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

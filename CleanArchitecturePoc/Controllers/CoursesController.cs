@@ -22,7 +22,7 @@ namespace CleanArchitecturePoc.Controllers
 
         [HttpGet]
         [Route("")]
-        public IEnumerable<CourseModel> GetCourse()
+        public IEnumerable<CourseModel> GetCourses()
         {
             return _unitOfWork.Courses.GetCourses();
         }
