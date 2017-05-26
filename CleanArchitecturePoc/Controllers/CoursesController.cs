@@ -29,7 +29,7 @@ namespace CleanArchitecturePoc.Controllers
 
         [HttpGet]
         [Route("ByName/{courseName}")]
-        public IEnumerable<CourseModel> GetCourseByName(string courseName)
+        public IEnumerable<CourseModel> GetCoursesByName(string courseName)
         {
             return _unitOfWork.Courses.GetCoursesByName(courseName);
         }
