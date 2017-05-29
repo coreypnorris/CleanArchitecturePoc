@@ -204,7 +204,7 @@
     <Compile Include="Core\Models\EnrollmentModel.cs" />
     <Compile Include="Core\Models\SchemaModel.cs" />
     <Compile Include="Core\Models\UserModel.cs" />
-    <Compile Include="Persistence\IUnitOfWork.cs" />
+    <Compile Include="Core\IUnitOfWork.cs" />
     <Compile Include="Persistence\UnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Persistence\Repositories\CourseRepository.cs" />

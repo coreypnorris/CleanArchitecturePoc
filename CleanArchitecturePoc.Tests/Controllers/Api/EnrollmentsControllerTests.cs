@@ -8,6 +8,7 @@ using FluentAssertions;
 using System.Web.Http.Results;
 using CleanArchitecturePoc.Core.Models;
 using System.Collections.Generic;
+using CleanArchitecturePoc.Core;
 
 namespace CleanArchitecturePoc.Tests
 {

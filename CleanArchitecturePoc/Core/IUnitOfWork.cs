@@ -1,6 +1,6 @@
 ﻿using CleanArchitecturePoc.Core.RepositoryInterfaces;
 
-namespace CleanArchitecturePoc.Persistence
+namespace CleanArchitecturePoc.Core
 {
     public interface IUnitOfWork
     {

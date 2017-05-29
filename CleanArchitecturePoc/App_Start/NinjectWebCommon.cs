@@ -15,6 +15,7 @@ namespace CleanArchitecturePoc.App_Start
     using CleanArchitecturePoc.Core.RepositoryInterfaces;
     using CleanArchitecturePoc.Persistence;
     using CleanArchitecturePoc.Persistence.Repositories;
+    using CleanArchitecturePoc.Core;
 
     public static class NinjectWebCommon 
     {
