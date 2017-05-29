@@ -1,6 +1,6 @@
 ﻿using CleanArchitecturePoc.Core.Models;
 using CleanArchitecturePoc.Persistence;
-using CleanArchitecturePoc.Repositories;
+using CleanArchitecturePoc.Core.RepositoryInterfaces;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;

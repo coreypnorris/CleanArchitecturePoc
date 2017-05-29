@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using CleanArchitecturePoc.Core.Models;
 
-namespace CleanArchitecturePoc.Repositories
+namespace CleanArchitecturePoc.Core.RepositoryInterfaces
 {
     public interface ICourseRepository
     {

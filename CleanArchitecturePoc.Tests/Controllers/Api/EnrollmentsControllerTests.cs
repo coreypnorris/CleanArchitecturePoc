@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CleanArchitecturePoc.Controllers;
 using CleanArchitecturePoc.Persistence;
 using Moq;
-using CleanArchitecturePoc.Repositories;
+using CleanArchitecturePoc.Core.RepositoryInterfaces;
 using FluentAssertions;
 using System.Web.Http.Results;
 using CleanArchitecturePoc.Core.Models;

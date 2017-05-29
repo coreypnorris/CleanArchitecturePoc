@@ -1,10 +1,11 @@
 ﻿using CleanArchitecturePoc.Core.Models;
+using CleanArchitecturePoc.Core.RepositoryInterfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace CleanArchitecturePoc.Repositories
+namespace CleanArchitecturePoc.Persistence.Repositories
 {
     public class CourseRepository : ICourseRepository
     {

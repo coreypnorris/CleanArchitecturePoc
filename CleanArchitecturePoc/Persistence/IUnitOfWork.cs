@@ -1,4 +1,4 @@
-﻿using CleanArchitecturePoc.Repositories;
+﻿using CleanArchitecturePoc.Core.RepositoryInterfaces;
 
 namespace CleanArchitecturePoc.Persistence
 {

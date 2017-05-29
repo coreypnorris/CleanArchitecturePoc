@@ -1,4 +1,5 @@
 ﻿using CleanArchitecturePoc.Core.Models;
+using CleanArchitecturePoc.Core.RepositoryInterfaces;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -6,7 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 
-namespace CleanArchitecturePoc.Repositories
+namespace CleanArchitecturePoc.Persistence.Repositories
 {
     public class SchemaRepository : ISchemaRepository
     {
