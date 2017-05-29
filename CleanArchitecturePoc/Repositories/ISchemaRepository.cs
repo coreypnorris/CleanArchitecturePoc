@@ -1,4 +1,4 @@
-﻿using CleanArchitecturePoc.Models;
+﻿using CleanArchitecturePoc.Core.Models;
 
 namespace CleanArchitecturePoc.Repositories
 {

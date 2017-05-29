@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using CleanArchitecturePoc.Models;
+using CleanArchitecturePoc.Core.Models;
 
 namespace CleanArchitecturePoc.Repositories
 {

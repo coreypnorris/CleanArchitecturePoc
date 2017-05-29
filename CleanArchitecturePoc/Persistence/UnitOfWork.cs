@@ -1,4 +1,4 @@
-﻿using CleanArchitecturePoc.Models;
+﻿using CleanArchitecturePoc.Core.Models;
 using CleanArchitecturePoc.Repositories;
 using Newtonsoft.Json;
 using System;

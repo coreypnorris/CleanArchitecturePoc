@@ -200,10 +200,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\CourseModel.cs" />
-    <Compile Include="Models\EnrollmentModel.cs" />
-    <Compile Include="Models\SchemaModel.cs" />
-    <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Core\Models\CourseModel.cs" />
+    <Compile Include="Core\Models\EnrollmentModel.cs" />
+    <Compile Include="Core\Models\SchemaModel.cs" />
+    <Compile Include="Core\Models\UserModel.cs" />
     <Compile Include="Persistence\IUnitOfWork.cs" />
     <Compile Include="Persistence\UnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

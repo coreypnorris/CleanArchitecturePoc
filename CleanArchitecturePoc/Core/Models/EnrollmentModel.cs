@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CleanArchitecturePoc.Models
+namespace CleanArchitecturePoc.Core.Models
 {
     public class EnrollmentModel
     {

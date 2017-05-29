@@ -1,15 +1,13 @@
 ﻿using Newtonsoft.Json;
-using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
-namespace CleanArchitecturePoc.Models
+namespace CleanArchitecturePoc.Core.Models
 {
-    public class CourseModel
+    public class UserModel
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string Email { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public List<EnrollmentModel> Enrollments { get; set; }

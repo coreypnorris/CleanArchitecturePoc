@@ -6,7 +6,7 @@ using Moq;
 using CleanArchitecturePoc.Repositories;
 using FluentAssertions;
 using System.Web.Http.Results;
-using CleanArchitecturePoc.Models;
+using CleanArchitecturePoc.Core.Models;
 using System.Collections.Generic;
 
 namespace CleanArchitecturePoc.Tests
