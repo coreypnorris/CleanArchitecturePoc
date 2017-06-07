@@ -4,7 +4,7 @@ This is a proof-of-concept MVC & Web Api app that implements certain concepts ta
 The concepts I'm trying to learn / implement in this POC are the following:
 - Repository pattern
 - Unit of work pattern
-- Dependency inversion principle (TODO)
+- Dependency inversion principle
 
 ## Repository pattern
 > A **repository** mediates between the domain & data mapping layers using a collection-like interface for accessing domain objects. (Martin Fowler - Patterns of Enterprise Application & Architecture)
